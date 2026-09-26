@@ -34,20 +34,53 @@ Al finalizar deben existir:
 <catalogo>.bigdata_<alumno>.bronze_events
 ```
 
-## Criterios del checkpoint
+## Formato de entrega
 
-- El notebook se puede volver a ejecutar sin romperse.
-- Bronze conserva el dato original y agrega metadatos de ingesta.
-- Los esquemas no dependen ciegamente de inferencia.
-- Se identifican duplicados e importes inválidos, pero no se corrigen todavía: esa tarea corresponde a Silver.
-- El alumno puede explicar por qué Delta es más que un formato de archivos.
+La entrega se hace en el repositorio personal `mi-primer-proyecto` que creaste en la [guía de Git y GitHub](../GUIA_GIT_GITHUB.md).
 
-## Recuperación
+### Estructura
 
-Si una ejecución se interrumpe, volver a ejecutar desde el setup. Las escrituras de archivos usan `overwrite` y las tablas se reemplazan de forma controlada. Para limpiar todo, revisar primero el nombre mostrado por el notebook y ejecutar manualmente:
+Creá un directorio `resolucion-practica-1` en la raíz del repositorio con estos archivos:
 
-```sql
-DROP SCHEMA IF EXISTS `<catalogo>`.`bigdata_<alumno>` CASCADE;
+```text
+mi-primer-proyecto/
+└── resolucion-practica-1/
+    ├── README.md
+    ├── 01_ingesta_bronze.ipynb
+    └── 02_desafio.ipynb
 ```
 
-Nunca usar `DROP CATALOG`.
+| Archivo | Contenido |
+|---|---|
+| `README.md` | Nombre, `student_id` usado en los notebooks y respuestas de la sección **Entrega breve** de `01_ingesta_bronze`: tres observaciones sobre CSV/JSON, Parquet y Delta, y dónde aparece cada una de las cinco V. Incluí también la reflexión final del desafío (máximo 150 palabras). |
+| `01_ingesta_bronze.ipynb` | Notebook ejecutado, con las salidas de las cuatro tablas Bronze y del diagnóstico de calidad. |
+| `02_desafio.ipynb` | Notebook con las tres consignas resueltas y las aserciones ejecutadas sin errores. |
+
+### Exportar los notebooks desde Databricks
+
+1. Ejecutá cada notebook completo para que las salidas queden visibles.
+2. Abrí **File → Export → IPython Notebook** y descargá el archivo `.ipynb`.
+3. Copiá los archivos descargados a `resolucion-practica-1/` dentro de tu copia local del repositorio.
+
+### Publicar la entrega
+
+Desde la carpeta de tu repositorio:
+
+```bash
+git add resolucion-practica-1
+git commit -m "Entrega práctica 1"
+git push origin main
+```
+
+Verificá en GitHub que el directorio y los tres archivos aparecen en `main`.
+
+El repositorio tiene que ser **público** para que el docente pueda ver la entrega. Para comprobarlo, abrí su URL en una ventana privada del navegador, sin iniciar sesión: si ves `resolucion-practica-1`, está accesible. Si lo creaste como privado, cambialo desde **Settings → General → Danger Zone → Change repository visibility**.
+
+Enviá la URL de tu repositorio al mail de los profesores.
+
+### Qué no incluir
+
+El repositorio es público: cualquier persona puede ver los archivos y su historial. Revisá [qué implica que sea público](../GUIA_GIT_GITHUB.md#qué-implica-que-el-repositorio-sea-público) antes de hacer el push.
+
+- Datos generados, archivos del volumen ni exportaciones de tablas: se reconstruyen ejecutando los notebooks.
+- Tokens, contraseñas u otras credenciales.
