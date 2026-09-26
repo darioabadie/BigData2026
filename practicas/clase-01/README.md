@@ -47,14 +47,14 @@ mi-primer-proyecto/
 └── resolucion-practica-1/
     ├── README.md
     ├── 01_ingesta_bronze.ipynb
-    └── 02_desafio.ipynb
+    └── 02_desafio.ipynb (OPCIONAL)
 ```
 
 | Archivo | Contenido |
 |---|---|
 | `README.md` | Nombre, `student_id` usado en los notebooks y respuestas de la sección **Entrega breve** de `01_ingesta_bronze`: tres observaciones sobre CSV/JSON, Parquet y Delta, y dónde aparece cada una de las cinco V. Incluí también la reflexión final del desafío (máximo 150 palabras). |
 | `01_ingesta_bronze.ipynb` | Notebook ejecutado, con las salidas de las cuatro tablas Bronze y del diagnóstico de calidad. |
-| `02_desafio.ipynb` | Notebook con las tres consignas resueltas y las aserciones ejecutadas sin errores. |
+| `02_desafio.ipynb` (OPCIONAL) | Notebook con las tres consignas resueltas y las aserciones ejecutadas sin errores. |
 
 ### Exportar los notebooks desde Databricks
 
