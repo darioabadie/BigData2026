@@ -43,7 +43,7 @@ No crees un clúster. Free Edition es serverless y no ofrece configuración pers
 El repositorio público es:
 
 ```text
-https://github.com/guillermohenrion/BigData2026
+https://github.com/darioabadie/BigData2026
 ```
 
 Para clonarlo como Git folder:
@@ -54,14 +54,14 @@ Para clonarlo como Git folder:
 4. En **Git repository URL**, ingresá:
 
    ```text
-   https://github.com/guillermohenrion/BigData2026
+   https://github.com/darioabadie/BigData2026
    ```
 
 5. En **Git provider**, elegí **GitHub**.
 6. Usá `BigData2026` como nombre del Git folder.
 7. No actives *sparse checkout* para esta práctica.
 8. Seleccioná **Create Git folder**.
-9. Esperá a que aparezcan `README.md`, `clase-1`…`clase-4` y `practicas`.
+9. Esperá a que aparezcan `README.md` y `practicas`.
 
 Los repositorios públicos se pueden clonar para lectura sin configurar credenciales. Para hacer `commit` o `push`, vinculá después tu cuenta desde **Settings** → **Linked accounts** → **Add Git credential**. Databricks recomienda OAuth o su aplicación de GitHub; no compartas tokens con docentes ni compañeros.
 
