@@ -47,11 +47,31 @@ El recorrido que vas a practicar es: **editar un archivo → guardar un commit �
 2. Completá la verificación de la cuenta si se solicita.
 3. En el menú **+**, seleccioná **New repository**.
 4. En **Repository name**, escribí `mi-primer-proyecto`.
-5. Elegí **Private** para que el repositorio sea privado.
+5. Elegí **Public** para que el repositorio sea público. Antes de continuar, leé [qué implica que sea público](#qué-implica-que-el-repositorio-sea-público).
 6. Activá la opción **Add a README file** o **Add README**.
 7. Dejá las demás opciones con sus valores predeterminados y seleccioná **Create repository**.
 
 Deberías ver la página de tu proyecto y un archivo llamado `README.md`.
+
+#### Qué implica que el repositorio sea público
+
+Usamos repositorios públicos porque las entregas de las prácticas se hacen en este mismo repositorio, y así el docente puede verlas sin que tengas que darle permisos. Eso tiene consecuencias que conviene conocer desde el principio:
+
+- **Cualquier persona puede verlo.** No hace falta tener cuenta de GitHub ni conocerte: basta con la URL. Los buscadores también pueden indexarlo.
+- **El historial también es público.** Se puede ver cada commit, no solo la versión actual de los archivos. Borrar un archivo en un commit nuevo no lo elimina de los commits anteriores.
+- **Público no significa editable.** Solo vos (y las personas que invites como colaboradoras) pueden hacer commits. Los demás pueden leer, descargar o copiar el contenido.
+- **Tus datos de autor quedan visibles.** Cada commit muestra el nombre y el correo configurados en Git. Por eso en la Parte 2 recomendamos usar la dirección `noreply` de GitHub.
+- **Tus compañeros pueden ver tus resoluciones.** Cada entrega tiene que ser trabajo propio.
+
+Nunca subas a este repositorio:
+
+- Tokens, contraseñas ni claves, incluidos los tokens de acceso de Databricks.
+- Datos personales tuyos o de otras personas: documento, teléfono, dirección.
+- Datasets o archivos generados por las prácticas.
+
+Si subiste una credencial por error, considerala comprometida aunque la borres enseguida: revocala o cambiala desde el servicio que la emitió y avisale al docente.
+
+Podés cambiar la visibilidad más adelante desde **Settings → General → Danger Zone → Change repository visibility**, pero el repositorio tiene que seguir siendo público mientras se corrijan las entregas.
 
 ### 4. Ejercicio — escribir una presentación
 
@@ -131,7 +151,8 @@ Completá el diálogo de **Commit changes**. Escribir en el editor o mirar la vi
 ### Checklist de la Parte 1
 
 - [ ] Puedo explicar la diferencia entre Git y GitHub.
-- [ ] Creé mi repositorio `mi-primer-proyecto`.
+- [ ] Creé mi repositorio público `mi-primer-proyecto`.
+- [ ] Sé qué información no debo subir a un repositorio público.
 - [ ] El README muestra mi presentación y mi objetivo.
 - [ ] Guardé los dos commits del ejercicio con mensajes descriptivos.
 - [ ] Encontré ambos cambios en el historial.
@@ -180,9 +201,9 @@ cd mi-primer-proyecto
 git status
 ```
 
-Como el repositorio es privado, Git puede pedirte iniciar sesión durante el clonado. Si se abre el navegador mediante Git Credential Manager, ingresá con la cuenta que creó el repositorio y completá la autorización.
+Como el repositorio es público, el clonado no pide credenciales. Git te va a pedir iniciar sesión recién al publicar cambios con `git push` (paso 7). Si se abre el navegador mediante Git Credential Manager, ingresá con la cuenta que creó el repositorio y completá la autorización.
 
-En macOS/Linux, si todavía no tenés un método de autenticación configurado, seguí la [guía oficial de Git Credential Manager](https://docs.github.com/en/get-started/git-basics/caching-your-github-credentials-in-git). GitHub no acepta la contraseña de tu cuenta como contraseña de Git por HTTPS; si aparece ese pedido en la terminal, configurá el gestor de credenciales antes de continuar.
+En macOS/Linux, si todavía no tenés un método de autenticación configurado, hacelo ahora siguiendo la [guía oficial de Git Credential Manager](https://docs.github.com/en/get-started/git-basics/caching-your-github-credentials-in-git). GitHub no acepta la contraseña de tu cuenta como contraseña de Git por HTTPS; si aparece ese pedido en la terminal, configurá el gestor de credenciales antes de continuar.
 
 Deberías estar en la rama `main`, con un estado similar a `nothing to commit, working tree clean`: todavía no hiciste cambios locales. Tu copia ya contiene el README de la Parte 1.
 
@@ -195,7 +216,7 @@ git config user.name "Ana Perez"
 git config user.email "tu-correo@example.com"
 ```
 
-Usá un correo asociado a tu cuenta de GitHub, o tu dirección privada `noreply` que figura en **Settings → Emails** de GitHub. Esta configuración identifica al autor de los commits en este repositorio; no inicia sesión en GitHub.
+Como tu repositorio es público, este correo va a quedar visible en cada commit. Recomendamos usar tu dirección privada `noreply`, que figura en **Settings → Emails** de GitHub; también podés usar otro correo asociado a tu cuenta. Esta configuración identifica al autor de los commits en este repositorio; no inicia sesión en GitHub.
 
 ### 4. Crear un archivo Markdown
 
@@ -254,7 +275,7 @@ git push origin main
 
 **`git push` envía tus commits locales a GitHub.** En este comando, `origin` es el nombre que Git asignó al repositorio remoto al clonarlo y `main` es la rama que estás publicando.
 
-Si Git vuelve a pedir autenticación, usá la misma cuenta del clonado. Esperá a que el comando termine sin errores.
+Si Git pide autenticación, usá la cuenta que creó el repositorio. Esperá a que el comando termine sin errores.
 
 Para comprobar el resultado, actualizá la página del repositorio en GitHub: debería aparecer `aprendizajes.md` con su contenido y el mensaje `Agrego mis aprendizajes de Git`.
 
