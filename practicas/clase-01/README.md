@@ -76,7 +76,7 @@ Verificá en GitHub que el directorio y los tres archivos aparecen en `main`.
 
 El repositorio tiene que ser **público** para que el docente pueda ver la entrega. Para comprobarlo, abrí su URL en una ventana privada del navegador, sin iniciar sesión: si ves `resolucion-practica-1`, está accesible. Si lo creaste como privado, cambialo desde **Settings → General → Danger Zone → Change repository visibility**.
 
-Enviá la URL de tu repositorio al mail de los profesores.
+Enviá la URL de tu repositorio al mail de los profesores dabadie@itba.edu.ar y ghenrion@itba.edu.ar.
 
 ### Qué no incluir
 
