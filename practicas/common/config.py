@@ -68,3 +68,10 @@ def create_course_namespace(spark, config: CourseConfig) -> None:
     spark.sql(f"USE CATALOG {quote_identifier(config.catalog)}")
     spark.sql(f"USE SCHEMA {quote_identifier(config.schema)}")
 
+
+def qualified_table(config: CourseConfig, table_name: str) -> str:
+    """Devuelve un nombre de tabla completamente calificado y citado."""
+    if not re.fullmatch(r"[a-z][a-z0-9_]{1,62}", table_name):
+        raise ValueError(f"Nombre de tabla inválido: {table_name}")
+    return f"{config.namespace}.{quote_identifier(table_name)}"
+
