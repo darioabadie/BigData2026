@@ -9,7 +9,7 @@ Estas prácticas usan un único caso conductor: una plataforma ficticia de comer
 3. **Clase 3 — Streaming:** procesamiento incremental, ventanas, watermarks y checkpoints.
 4. **Clase 4 — MLOps:** features, MLflow, registro, scoring y monitoreo.
 
-La primera clase está implementada como piloto. Las carpetas históricas `clase-1` a `clase-4` se conservan sin cambios hasta validar este formato.
+Las clases 1 y 2 están implementadas sobre Databricks Free Edition. La segunda continúa directamente desde las tablas Bronze construidas en la primera.
 
 ## Empezar desde cero
 
@@ -45,6 +45,17 @@ Ejecutar en orden:
 4. `clase-01/02_desafio.ipynb`
 
 El material resuelto se encuentra bajo `clase-01/docente/` y no debería compartirse antes de finalizar la práctica.
+
+## Uso de la clase 2
+
+Conservá el mismo `student_id` y la misma escala de la clase 1. Luego ejecutá:
+
+1. `clase-02/00_preflight.ipynb`
+2. `clase-02/00_generate_new_batch.ipynb`
+3. La secuencia de cuatro notebooks mediante el Job descripto en `clase-02/GUIA_CREAR_JOB.md`
+4. `clase-02/05_visualizacion.ipynb`, una vez validado el pipeline
+
+La práctica construye Silver y Gold, incorpora cuarentena y `MERGE`, y valida la llegada de un archivo nuevo y la reejecución idempotente del pipeline.
 
 ## Reinicio seguro
 
