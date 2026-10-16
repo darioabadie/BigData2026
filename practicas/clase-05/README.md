@@ -82,7 +82,7 @@ Las preguntas son cortas. Cuando piden un dato, copiá el valor que te dieron tu
 
 7. ¿Cuál fue tu mejor run (modelo, variables, hiperparámetros y PR-AUC)? ¿Cuánto mejoró respecto de usar sólo `rule_alert` (`solo_regla`)?
 8. Con el mismo modelo, ¿cuánto cambió el PR-AUC al pasar de `basicas` a `cliente` y a `completas`? ¿Qué variables resultaron más importantes en tu mejor run?
-9. Con `completas`, ¿qué modelo anduvo mejor: logística, bosque o boosting? ¿Por qué un modelo de árboles puede aprovechar combinaciones de variables (por ejemplo, de noche *y* por transferencia) que una logística no ve?
+9. Con `completas`, ¿qué modelo anduvo mejor: regresión logística, Random Forest o Gradient Boosting? ¿Por qué un modelo de árboles puede aprovechar combinaciones de variables (por ejemplo, de noche *y* por transferencia) que una logística no ve?
 10. ¿Qué cambió en precision, recall y cantidad de alertas al usar `class_weight = balanced`? ¿Cambió mucho el PR-AUC?
 11. ¿Qué pasó al bajar el umbral? ¿Por qué el PR-AUC no depende del umbral y el F1 sí?
 12. ¿Qué hiperparámetro barriste y con qué valor obtuviste el mejor PR-AUC de test? ¿Hubo valores con `train_pr_auc` mucho más alto que el de test? ¿Cómo se llama ese fenómeno?
@@ -91,7 +91,7 @@ Las preguntas son cortas. Cuando piden un dato, copiá el valor que te dieron tu
 
 13. ¿Coincidieron tu mejor run por PR-AUC y tu mejor run por accuracy? Explicá por qué pueden no coincidir.
 14. En el gráfico de PR-AUC de train contra test, ¿qué runs quedan más lejos de la diagonal y qué indica eso?
-15. ¿Qué ventaja tiene consultar los runs con `mlflow.search_runs` en lugar de mirarlos en la interfaz? Escribí el `filter_string` que usarías para traer sólo tus bosques con PR-AUC de test mayor a 0,55.
+15. ¿Qué ventaja tiene consultar los runs con `mlflow.search_runs` en lugar de mirarlos en la interfaz? Escribí el `filter_string` que usarías para traer sólo tus Random Forest con PR-AUC de test mayor a 0,55.
 16. En fraude, ¿qué cuesta más, una alerta falsa o un contracargo no detectado? Si el equipo de riesgo sólo puede revisar una cantidad fija de alertas por día, ¿cómo usarías el umbral?
 
 ### Registro, uso y monitoreo (`04_registro_y_uso`)
@@ -124,8 +124,8 @@ No incluyas datos generados, modelos, credenciales ni tokens.
 - **`Falta ... silver_transactions`**: ejecutá la clase 2 con el mismo `student_id` y escala.
 - **`Falta ml_features`**: ejecutá primero `00_preflight`.
 - **El registro en Unity Catalog falla en el notebook 04**: puede pasar por limitaciones de Free Edition. El notebook lo informa y sigue con el modelo del run; respondé la pregunta 17 con el error que apareció.
-- **Al cambiar un widget se entrena solo**: es la configuración de los widgets; cada ejecución queda como un run más. Para evitarlo, en el engranaje de los widgets elegí **On widget change → Do nothing**.
-- **El barrido dice que el hiperparámetro no corresponde al modelo**: `C` es sólo de la logística, `n_estimators` sólo del bosque y `learning_rate` sólo del boosting. Cambiá el modelo o el barrido.
+- **Cambié los widgets pero el run salió con la configuración anterior**: las celdas que entrenan usan lo que muestra la celda "Configuración elegida". Si no se actualizó sola al cambiar los widgets, ejecutala y después volvé a entrenar.
+- **El barrido dice que el hiperparámetro no corresponde al modelo**: `C` es sólo de la regresión logística, `n_estimators` sólo del Random Forest y `learning_rate` sólo del Gradient Boosting. Cambiá el modelo o el barrido.
 - **No encuentro el modelo en los artefactos del run**: con MLflow 3 los modelos aparecen en la sección **Logged models** del experimento, no en *Artifacts*.
 - **Quiero empezar de cero**: volvé a ejecutar `00_preflight` (reconstruye `ml_features`) y, si querés borrar los runs, seleccionalos en la interfaz del experimento y usá **Delete**. Los runs borrados no aparecen en el notebook 03.
-- **Con escala `demo` los bosques tardan**: usá `small`, o elegí menos árboles y profundidad limitada.
+- **Con escala `demo` los Random Forest tardan**: usá `small`, o elegí menos árboles y profundidad limitada.
